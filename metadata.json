@@ -1,0 +1,6 @@
+{
+  "name": "ÉvalMinier - Plateforme d'Évaluation PTPF & Génération CCM",
+  "description": "Système de traitement et d'évaluation de dossiers miniers (PTPF) selon le Guide v2.0 avec validation humaine et génération du Cahier des Charges Minières (CCM) au format PDF et DOCX.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
