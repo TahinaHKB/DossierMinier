@@ -117,70 +117,70 @@ export default function App() {
       />
 
       {/* Main Workspace Viewport */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Contextual Workflow Progress Bar */}
-        <div className="bg-white border border-slate-200 rounded-xl p-3 shadow-2xs no-print">
-          <div className="flex items-center justify-between overflow-x-auto text-xs font-medium gap-2">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-5">
+        {/* Sleek Minimalist Stepper */}
+        <div className="bg-white border border-slate-200/80 rounded-xl px-4 py-2.5 shadow-2xs no-print">
+          <div className="flex items-center justify-between overflow-x-auto text-xs font-medium gap-1 sm:gap-2">
             <button
               onClick={() => setCurrentTab('document')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
                 currentTab === 'document' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-slate-200 text-slate-800 text-2xs flex items-center justify-center font-bold">1</span>
-              <span>Importation &amp; Document</span>
+              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 text-3xs flex items-center justify-center font-bold">1</span>
+              <span>Dossier</span>
             </button>
 
-            <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
 
             <button
               onClick={() => setCurrentTab('evaluation')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
                 currentTab === 'evaluation' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-slate-200 text-slate-800 text-2xs flex items-center justify-center font-bold">2</span>
-              <span>Algorithme Guide v2.0</span>
-              <span className="font-mono text-2xs font-bold text-emerald-600">({report.totalScore}/110)</span>
+              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 text-3xs flex items-center justify-center font-bold">2</span>
+              <span>Évaluation</span>
+              <span className="font-mono text-3xs font-semibold text-emerald-600">({report.totalScore}/110)</span>
             </button>
 
-            <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
 
             <button
               onClick={() => setCurrentTab('validation')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
                 currentTab === 'validation' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-slate-200 text-slate-800 text-2xs flex items-center justify-center font-bold">3</span>
-              <span>Validation Humaine</span>
+              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 text-3xs flex items-center justify-center font-bold">3</span>
+              <span>Validation</span>
               {humanValidationOverride.isValidated && (
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
               )}
             </button>
 
-            <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
 
             <button
               onClick={() => setCurrentTab('ccm')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
                 currentTab === 'ccm' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-slate-200 text-slate-800 text-2xs flex items-center justify-center font-bold">4</span>
-              <span>Canevas CCM Rempli</span>
+              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 text-3xs flex items-center justify-center font-bold">4</span>
+              <span>Canevas CCM</span>
             </button>
 
-            <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
 
             <button
               onClick={() => setCurrentTab('excel')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
                 currentTab === 'excel' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-slate-200 text-slate-800 text-2xs flex items-center justify-center font-bold">5</span>
-              <span>Tableaux Excel</span>
+              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 text-3xs flex items-center justify-center font-bold">5</span>
+              <span>Tableaux</span>
             </button>
           </div>
         </div>

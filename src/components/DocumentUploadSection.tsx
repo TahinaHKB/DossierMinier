@@ -166,46 +166,46 @@ export const DocumentUploadSection: React.FC<DocumentUploadSectionProps> = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Header Banner */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs">
+      <div className="bg-white border border-slate-200/90 rounded-xl p-4 sm:p-6 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="text-xs uppercase tracking-wider font-semibold text-slate-500 mb-1">
+            <div className="text-2xs uppercase tracking-wider font-semibold text-slate-500 mb-1">
               République de Madagascar · Ministère des Mines
             </div>
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
-              Traitement &amp; Évaluation Universelle de Documents Miniers
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Traitement &amp; Évaluation de Documents Miniers
             </h1>
-            <p className="text-xs text-slate-600 mt-1">
-              Importez <strong className="font-semibold text-slate-800">n'importe quel document minier (PDF ou texte)</strong>. Le système applique automatiquement le protocole strict du <strong className="font-semibold text-slate-800">Guide d'Évaluation v2.0</strong> et pré-remplit instantanément le <strong className="font-semibold text-slate-800">Cahier des Charges Minières (CCM)</strong> prêt au téléchargement.
+            <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+              Importez <strong className="font-semibold text-slate-800">n'importe quel document (PDF ou texte)</strong>. Le système applique le <strong className="font-semibold text-slate-800">Guide d'Évaluation v2.0</strong> et pré-remplit instantanément le <strong className="font-semibold text-slate-800">Cahier des Charges Minières (CCM)</strong>.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => onResetToSample('37255')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
                 doc.permitNumber === '37255'
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
               }`}
             >
-              Exemple 1 : 37255 (Ambilobe)
+              Spécimen 1 : 37255 (Ambilobe)
             </button>
             <button
               onClick={() => onResetToSample('41280')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
                 doc.permitNumber === '41280'
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
               }`}
             >
-              Exemple 2 : 41280 (Betsiboa Gold)
+              Spécimen 2 : 41280 (Betsiboa)
             </button>
             <button
               onClick={() => setShowPasteModal(true)}
-              className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 transition-colors flex items-center gap-1.5"
+              className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <ClipboardPaste className="w-3.5 h-3.5" />
               Coller texte/OCR
@@ -215,7 +215,7 @@ export const DocumentUploadSection: React.FC<DocumentUploadSectionProps> = ({
       </div>
 
       {/* INSTANT DOWNLOAD & AUTO-FILL CALLOUT CARD */}
-      <div className="bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 text-white border border-emerald-800/60 rounded-xl p-5 shadow-sm">
+      <div className="bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 text-white border border-emerald-800/60 rounded-xl p-4 sm:p-5 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -223,43 +223,35 @@ export const DocumentUploadSection: React.FC<DocumentUploadSectionProps> = ({
               <span className="text-xs uppercase font-bold tracking-wider text-emerald-400">
                 Canevas CCM Rempli Automatiquement
               </span>
-              <span className="text-2xs text-slate-400">
+              <span className="text-2xs text-slate-400 truncate max-w-xs">
                 · Permis n° {doc.permitNumber} ({doc.applicantName})
               </span>
             </div>
-            <h2 className="text-lg font-bold text-white">
-              Le document est traité : Téléchargez directement le Cahier des Charges (CCM)
+            <h2 className="text-base sm:text-lg font-bold text-white">
+              Cahier des Charges (CCM) prêt au téléchargement
             </h2>
-            <p className="text-xs text-slate-300 max-w-2xl">
-              Toutes les valeurs pivots (Coût Matériel 1 = {report.pivots.coutMateriel1.toLocaleString('fr-FR')} MGA, CMRM = {report.pivots.totalCmrmAjuste.toLocaleString('fr-FR')} MGA, PRSE = {report.pivots.prseAnnuelRequis.toLocaleString('fr-FR')} MGA/an) sont injectées sans attendre.
+            <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
+              Valeurs pivots intégrées : Coût Matériel 1 ({report.pivots.coutMateriel1.toLocaleString('fr-FR')} MGA), CMRM ({report.pivots.totalCmrmAjuste.toLocaleString('fr-FR')} MGA), PRSE ({report.pivots.prseAnnuelRequis.toLocaleString('fr-FR')} MGA/an).
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
               onClick={handleQuickDownloadDocx}
               disabled={isDownloadingDocx}
-              className="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors flex items-center gap-2 shadow-sm"
+              className="px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
             >
-              <FileText className="w-4 h-4" />
-              {isDownloadingDocx ? 'Génération Word...' : 'Télécharger Word (.docx)'}
+              <FileText className="w-3.5 h-3.5" />
+              {isDownloadingDocx ? 'Génération...' : 'Télécharger Word (.docx)'}
             </button>
 
             <button
               onClick={handleQuickDownloadPdf}
               disabled={isDownloadingPdf}
-              className="px-4 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-colors flex items-center gap-2 shadow-sm"
+              className="px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
             >
-              <Download className="w-4 h-4" />
-              {isDownloadingPdf ? 'Génération PDF...' : 'Télécharger PDF (.pdf)'}
-            </button>
-
-            <button
-              onClick={onProceedToEval}
-              className="px-3.5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors flex items-center gap-1.5 border border-slate-700"
-            >
-              Voir l'évaluation
-              <ChevronRight className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
+              {isDownloadingPdf ? 'Génération...' : 'Télécharger PDF (.pdf)'}
             </button>
           </div>
         </div>

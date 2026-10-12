@@ -101,40 +101,40 @@ export const CcmTemplateView: React.FC<CcmTemplateViewProps> = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Action Bar */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs no-print">
+      <div className="bg-white border border-slate-200/90 rounded-xl p-4 sm:p-6 shadow-2xs no-print">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="text-xs uppercase tracking-wider font-semibold text-slate-500 mb-1 flex items-center gap-1.5">
+            <div className="text-2xs uppercase tracking-wider font-semibold text-slate-500 mb-1 flex items-center gap-1.5">
               <span>Modèle Ministériel Officiel</span>
               <span>·</span>
               <span className="text-emerald-700 font-medium">Loi n° 2023-007</span>
             </div>
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
               Cahier des Charges Minières (CCM) Généré
             </h1>
-            <p className="text-xs text-slate-600 mt-1">
+            <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
               Document officiel pré-rempli à partir des données validées du PTPF n° {doc.permitNumber} et intégrant les 4 valeurs pivots révisées.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
             <button
               onClick={() => (isEditing ? saveEdits() : setIsEditing(true))}
-              className={`px-3.5 py-2 text-xs font-medium rounded-lg border transition-colors flex items-center gap-1.5 ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors flex items-center gap-1.5 cursor-pointer ${
                 isEditing
                   ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
                   : 'bg-white border-slate-300 hover:bg-slate-50 text-slate-700'
               }`}
             >
               <Edit3 className="w-3.5 h-3.5" />
-              {isEditing ? 'Enregistrer les modifications' : 'Modifier les mentions'}
+              {isEditing ? 'Enregistrer' : 'Modifier'}
             </button>
 
             <button
               onClick={handlePrint}
-              className="px-3.5 py-2 text-xs font-medium rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 transition-colors flex items-center gap-1.5 shadow-2xs"
+              className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
             >
               <Printer className="w-3.5 h-3.5" />
               Imprimer
@@ -143,19 +143,19 @@ export const CcmTemplateView: React.FC<CcmTemplateViewProps> = ({
             <button
               onClick={handleDownloadPdf}
               disabled={isGeneratingPdf}
-              className="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-white transition-colors flex items-center gap-2 shadow-xs"
+              className="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
             >
-              <Download className="w-4 h-4" />
-              {isGeneratingPdf ? 'Génération PDF...' : 'Télécharger PDF (.pdf)'}
+              <Download className="w-3.5 h-3.5" />
+              {isGeneratingPdf ? 'Génération...' : 'PDF (.pdf)'}
             </button>
 
             <button
               onClick={handleDownloadDocx}
               disabled={isGeneratingDocx}
-              className="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-700 hover:bg-blue-600 text-white transition-colors flex items-center gap-2 shadow-xs"
+              className="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
             >
-              <FileText className="w-4 h-4" />
-              {isGeneratingDocx ? 'Génération Word...' : 'Télécharger DOCX (.docx)'}
+              <FileText className="w-3.5 h-3.5" />
+              {isGeneratingDocx ? 'Génération...' : 'Word (.docx)'}
             </button>
           </div>
         </div>
@@ -171,7 +171,7 @@ export const CcmTemplateView: React.FC<CcmTemplateViewProps> = ({
       </div>
 
       {/* Official Form Document Body (Printable Page Layout) */}
-      <div className="bg-white border border-slate-300 rounded-xl shadow-md p-8 md:p-14 max-w-4xl mx-auto text-slate-900 leading-relaxed font-sans text-xs">
+      <div className="bg-white border border-slate-300 rounded-xl shadow-md p-4 sm:p-8 md:p-12 max-w-4xl mx-auto text-slate-900 leading-relaxed font-sans text-xs">
         {/* Official Header */}
         <div className="text-center pb-6 border-b border-slate-300 space-y-1">
           <div className="font-bold text-sm tracking-widest text-slate-900 uppercase">

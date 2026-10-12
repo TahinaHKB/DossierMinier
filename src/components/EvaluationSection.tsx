@@ -64,18 +64,18 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner: Global Score & Verdict */}
-      <div className={`p-6 rounded-xl border ${verdictStyle.card} shadow-xs`}>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className={`p-4 sm:p-6 rounded-xl border ${verdictStyle.card} shadow-xs`}>
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${verdictStyle.badge}`}>
+              <span className={`text-2xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${verdictStyle.badge}`}>
                 {verdictStyle.title}
               </span>
-              <span className="text-xs text-slate-500">
+              <span className="text-2xs text-slate-500">
                 Direction de la Promotion des Grandes Mines
               </span>
             </div>
-            <h2 className="text-xl font-bold text-slate-900">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900">
               Résultat Global de l’Évaluation Algorithmique
             </h2>
             <p className="text-xs text-slate-600 max-w-3xl leading-relaxed">
@@ -83,29 +83,27 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-6 shrink-0 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-            <div className="text-right">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between lg:justify-end gap-4 shrink-0 bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200/90 shadow-2xs">
+            <div className="text-left sm:text-right">
               <div className="text-2xs uppercase tracking-wider text-slate-400 font-semibold">
                 Score Global PTPF
               </div>
-              <div className="text-3xl font-extrabold font-mono text-slate-900 tabular-nums">
+              <div className="text-2xl sm:text-3xl font-extrabold font-mono text-slate-900 tabular-nums">
                 {report.totalScore}
-                <span className="text-sm font-normal text-slate-400 font-sans"> / {report.maxScore} pts</span>
+                <span className="text-xs font-normal text-slate-400 font-sans"> / {report.maxScore} pts</span>
               </div>
-              <div className="text-2xs text-slate-500 mt-0.5">
-                Seuil d'approbation : ≥ 95 pts
+              <div className="text-2xs text-slate-500">
+                Seuil légal : ≥ 95 pts
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-2">
-              <button
-                onClick={onProceedToValidation}
-                className="w-full sm:w-auto px-3.5 py-2 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center justify-center gap-1.5 shadow-xs whitespace-nowrap"
-              >
-                Passer à la validation humaine
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            <button
+              onClick={onProceedToValidation}
+              className="w-full sm:w-auto px-4 py-2.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center justify-center gap-1.5 shadow-xs whitespace-nowrap cursor-pointer"
+            >
+              <span>Valider l'évaluation</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>

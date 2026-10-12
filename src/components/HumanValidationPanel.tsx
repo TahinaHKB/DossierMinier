@@ -45,15 +45,15 @@ export const HumanValidationPanel: React.FC<HumanValidationPanelProps> = ({
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs">
+      <div className="bg-white border border-slate-200/90 rounded-xl p-4 sm:p-6 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="text-xs uppercase tracking-wider font-semibold text-slate-500 mb-1">
+            <div className="text-2xs uppercase tracking-wider font-semibold text-slate-500 mb-1">
               Étape 3 du Protocole · Examen Collégial
             </div>
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <UserCheck className="w-6 h-6 text-emerald-600" />
-              Vérification Humaine &amp; Validation par l'Ingénieur Minier
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <UserCheck className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 shrink-0" />
+              <span>Vérification Humaine &amp; Validation</span>
             </h1>
             <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
               Examen contradictoire des résultats calculés par l'algorithme d'évaluation. La validation humaine est obligatoire avant le remplissage officiel et l’export du Canevas de Cahier des Charges Minières (CCM).
@@ -61,32 +61,32 @@ export const HumanValidationPanel: React.FC<HumanValidationPanelProps> = ({
           </div>
 
           {report.isOfficiallyValidated ? (
-            <div className="flex items-center gap-3">
-              <div className="px-4 py-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2">
-                <Stamp className="w-4 h-4 text-emerald-600" />
-                Dossier Validé Officiellement
+            <div className="flex flex-wrap items-center gap-2.5">
+              <div className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-1.5">
+                <Stamp className="w-3.5 h-3.5 text-emerald-600" />
+                Dossier Validé
               </div>
               <button
                 onClick={onResetValidation}
-                className="px-3 py-2 rounded-lg border border-slate-300 text-xs text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-1.5"
-                title="Annuler la validation pour modifier"
+                className="px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-1 cursor-pointer"
+                title="Modifier"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 Modifier
               </button>
               <button
                 onClick={onProceedToCcm}
-                className="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center gap-2 shadow-xs"
+                className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
               >
-                Accéder au Canevas CCM
-                <ArrowRight className="w-4 h-4" />
+                <span>Canevas CCM</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           ) : (
             <button
               onClick={handleConfirmValidation}
               disabled={!allChecked}
-              className={`px-5 py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 shadow-xs ${
+              className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 shadow-xs ${
                 allChecked
                   ? 'bg-emerald-600 hover:bg-emerald-500 text-white cursor-pointer'
                   : 'bg-slate-200 text-slate-400 cursor-not-allowed'
@@ -100,10 +100,10 @@ export const HumanValidationPanel: React.FC<HumanValidationPanelProps> = ({
       </div>
 
       {/* Validation Checklist Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Left: Interactive Checklist */}
-        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-xl p-6 shadow-xs space-y-5">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+        <div className="lg:col-span-2 bg-white border border-slate-200/90 rounded-xl p-4 sm:p-6 shadow-2xs space-y-4">
+          <h2 className="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
             <FileCheck className="w-4 h-4 text-slate-500" />
             Points de Contrôle Obligatoires par l'Expert Minier
           </h2>
